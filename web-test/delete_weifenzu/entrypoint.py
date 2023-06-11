@@ -59,7 +59,7 @@ def start_multi_cancel(wd):
 
 def start_multi_cancel_confirm(wd):
     color_logger.info("start multi cancel confirm")
-    # ycsleep(2, '确认前等待')
+    ycsleep(2, '确认前等待')
     # e = wd.find_element(By.CSS_SELECTOR, ".woo-dialog-btn:nth-child(2)")
     #
     # print(">>>>>>>>>>>>>> 定位到的元素")
