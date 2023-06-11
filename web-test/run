@@ -1,0 +1,22 @@
+import sys
+from this_info import BASE_DIR
+sys.path.insert(0, BASE_DIR)
+
+from delete_weifenzu.entrypoint import start as start_delete_weifenzu
+from delete_weifenzu.entrypoint import pre_params
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from lib.yc_sleep import ycsleep
+
+
+def open_chrome():
+    options = pre_params()
+    wd = webdriver.Chrome(service=Service(r'D:\Study\chromedriver.exe'), options=options)
+    wd.maximize_window()
+    wd.implicitly_wait(5)
+
+    ycsleep(3, 'after open chrome')
+    return wd
+
+
+start_delete_weifenzu(open_chrome())
