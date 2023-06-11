@@ -57,11 +57,9 @@ def start_multi_cancel(wd):
     mouse_click(wd, ".woo-button-s:nth-child(2)")
 
 
-def start_multi_cancel_confirm(wd):
-    color_logger.info("start multi cancel confirm")
-    ycsleep(2, '确认前等待')
-    # e = wd.find_element(By.CSS_SELECTOR, ".woo-dialog-btn:nth-child(2)")
-    #
+def button_delete(wd):
+    e = wd.find_element(By.CSS_SELECTOR, ".woo-dialog-btn:nth-child(2)")
+
     # print(">>>>>>>>>>>>>> 定位到的元素")
     # print(e)
     # print(type(e))
@@ -71,12 +69,21 @@ def start_multi_cancel_confirm(wd):
     # print(e.rect)
     # print(e.text)
 
-    #e.click()
-    #e.send_keys(Keys.ENTER)
+    e.click()
+    # mouse_click(wd, ".woo-dialog-btn:nth-child(2)")
+
+
+def js_delete(wd):
     js = 'document.querySelector(".woo-dialog-btn:nth-child(2)").click()'
     wd.execute_script(js)
 
-    # mouse_click(wd, ".woo-dialog-btn:nth-child(2)")
+
+def start_multi_cancel_confirm(wd):
+    color_logger.info("start multi cancel confirm")
+    ycsleep(2, '确认前等待')
+
+    js_delete(wd)
+    # button_delete(wd)
 
     ycsleep(3, '确认后等待')
 
