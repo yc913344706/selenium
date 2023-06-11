@@ -1,3 +1,6 @@
+# 当cookie.json里面的用户信息失效后，重新运行此脚本，会；
+# - 调用微博登录页，扫码，记录并更新用户信息至cookie.json
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
